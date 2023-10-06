@@ -12,7 +12,20 @@ let numberBtn = document.querySelector("#btncheck4");
 let display_field = document.getElementById("result-field");
 // let gen_length = document.getElementById("gen-length");
 let icon = document.getElementById('icon');
-let lenth = 0;
+// let lenth = 0;
+
+let themeToggler = document.getElementById('themeToggle').addEventListener('click', () => {
+    let boddy = document.body
+    if (document.body.classList == 'light-mode') {
+        boddy.classList.replace('light-mode', 'dark-mode')
+        themeIcon.classList.replace('fa-regular', 'fa-solid')
+        boddy.dataset.bsTheme = 'dark';
+    } else {
+        boddy.classList.replace('dark-mode', 'light-mode')
+        themeIcon.classList.replace('fa-solid', 'fa-regular')
+        boddy.dataset.bsTheme = 'light';
+    }
+})
 
 let coppybtn = document.getElementById('copy-btn').addEventListener('click', () => {
     navigator.clipboard.writeText(display_field.value);
@@ -24,7 +37,7 @@ let coppybtn = document.getElementById('copy-btn').addEventListener('click', () 
     }, 1500);
 })
 
-function plength() {
+function plength(lenth = 0) {
     if (pass_length[0].selected) return lenth = 4;
     else if (pass_length[1].selected) return lenth = 6;
     else if (pass_length[2].selected) return lenth = 8;

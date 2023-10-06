@@ -9,19 +9,38 @@ body {
   height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  background-color: var(--main-bg);
+  transition: 0.2s ease;
+}
+.light-mode {
+  --cont-bg: #dadada;
+  --input-box: #fff;
+  --check-border: 3px solid rgba(114, 114, 114, 0.645);
+  --check-bg: #d0d0d0;
+  --check-roll: rgb(111, 111, 111);
+  --checked-roll: #212529;
+}
+.dark-mode {
+  --cont-bg: #16161e;
+  --input-box: #212529;
+  --check-border: 3px solid rgba(148, 148, 148, 0.427);
+  --check-bg: #212529;
+  --check-roll: rgba(148, 148, 148, 0.427);
+  --checked-roll: #16161e;
 }
 .main-box {
+  position: relative;
   padding: 1rem;
   height: fit-content;
   border-radius: 0.5rem;
-  background: #dadada;
+  background: var(--cont-bg);
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  margin: 1rem;
 }
 .input-box {
-  background-color: rgb(255, 255, 255);
+  background-color: var(--input-box);
   border-radius: 0.5em;
   padding: 0.7rem;
   display: flex;
@@ -31,6 +50,8 @@ body {
   width: 95%;
   border: none;
   font-size: 1.2rem;
+  background: transparent;
+  color: var(--output);
 }
 .input-box input:focus {
   outline: none;
@@ -43,7 +64,6 @@ body {
   font-size: 1.2rem;
 }
 .actions-box {
-  /* background-color: aqua; */
   display: flex;
   gap: 1rem;
   flex-direction: column;
@@ -55,7 +75,7 @@ body {
 .btns {
   display: flex;
   flex-direction: column;
-  gap: .5rem;
+  gap: 0.8rem;
 }
 .check-cont {
   display: flex;
@@ -64,15 +84,16 @@ body {
 }
 
 .togglebtn {
-  width: 66px;
-  height: 36px;
+  width: 63px;
+  height: 33px;
   border-radius: 20px;
-  background: #e3e3e3;
+  background: var(--check-bg);
   cursor: pointer;
   position: relative;
-  border: 3px solid rgba(0, 0, 0, 0.427);
+  border: var(--check-border);
   display: flex;
   align-items: center;
+  transition: 0.3s ease;
 }
 
 .togglebtn::before {
@@ -80,7 +101,7 @@ body {
   content: "";
   height: 20px;
   width: 20px;
-  background-color: rgba(0, 0, 0, 0.427);
+  background-color: var(--check-roll);
   border-radius: 50%;
   position: absolute;
   margin-left: 5px;
@@ -92,8 +113,8 @@ body {
 }
 
 .checkbtn:checked + .togglebtn::before {
-  transform: translateX(33px) scale(1.4);
-  background-color: #212529;
+  transform: translateX(30px) scale(1.3);
+  background-color: var(--checked-roll);
 }
 
 .checkbtn {
@@ -103,9 +124,21 @@ body {
 .check-main-cont {
   display: flex;
   align-items: center;
-  /* background-color: azure; */
-  /* justify-content: space-between; */
+  justify-content: space-between;
 }
+.check-main-cont p {
+  margin: auto 0;
+}
+#themeToggle {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  border: none;
+  padding: 0 0.5rem;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
 @media screen and (max-width: 500px) {
   body {
     align-items: flex-start;
@@ -113,6 +146,6 @@ body {
   .main-box {
     width: 100vw;
     overflow: hidden;
-    margin: 0.5rem;
+    margin: 1rem 0.5rem;
   }
 }

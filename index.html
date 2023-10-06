@@ -11,10 +11,11 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="light-mode" data-bs-theme="light">
     <div class="main-box">
+        <button class="fs-4" id="themeToggle"><i id="themeIcon" class="fa-regular fa-moon"></i></button>
         <div>
-            <h2>Password Generator</h2>
+            <h2 class="heading">Password Generator</h2>
             <p class="text-secondary">Click the button to generate a random password.</p>
         </div>
         <div class="input-box">
@@ -26,7 +27,7 @@
         <div class="actions-box">
             <div class="length">
                 <label for="select" class="mb-2">Choose the number of characters</label>
-                <select id="select" class="form-select" aria-label="Default select example">
+                <select id="select" class="form-select">
                     <option selected value="1">4 Characters</option>
                     <option value="2">6 Characters</option>
                     <option value="3">8 Characters</option>
