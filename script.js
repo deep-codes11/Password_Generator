@@ -19,10 +19,12 @@ let themeToggler = document.getElementById('themeToggle').addEventListener('clic
     if (document.body.classList == 'light-mode') {
         boddy.classList.replace('light-mode', 'dark-mode')
         themeIcon.classList.replace('fa-regular', 'fa-solid')
+        generate_btn.classList.replace('btn-dark', 'btn-light')
         boddy.dataset.bsTheme = 'dark';
     } else {
         boddy.classList.replace('dark-mode', 'light-mode')
         themeIcon.classList.replace('fa-solid', 'fa-regular')
+        generate_btn.classList.replace('btn-light', 'btn-dark')
         boddy.dataset.bsTheme = 'light';
     }
 })
