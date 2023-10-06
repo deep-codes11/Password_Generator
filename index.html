@@ -11,7 +11,7 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-<body class="light-mode" data-bs-theme="light">
+<body class="dark-mode" data-bs-theme="dark">
     <div class="main-box">
         <button class="fs-4" id="themeToggle"><i id="themeIcon" class="fa-regular fa-moon"></i></button>
         <div>
@@ -21,27 +21,17 @@
         <div class="input-box">
             <input id="result-field" type="text" placeholder="Your password here" readonly>
             <button id="copy-btn"><i id="icon" class=" fa-regular fa-clipboard"></i></button>
-            <!-- <i class="fa-solid fa-clipboard-check"></i> -->
         </div>
-        <!-- <p>Generated length: <span id="gen-length"></span></p> -->
         <div class="actions-box">
             <div class="length">
-                <label for="select" class="mb-2">Choose the number of characters</label>
-                <select id="select" class="form-select">
-                    <option selected value="1">4 Characters</option>
-                    <option value="2">6 Characters</option>
-                    <option value="3">8 Characters</option>
-                    <option value="4">10 Characters</option>
-                    <option value="5">12 Characters</option>
-                    <option value="6">16 Characters</option>
-                </select>
+                <label for="select" class="mb-2">Character Length: <span id="gen-length"></span></label>
+                <input type="range" class="form-range" min="4" max="24" value="10" step="2" id="range">
             </div>
             <div class="btns">
-                <label class="mb-2">Password must contain:</label>
                 <div class="check-main-cont">
                     <p><strong>Include UPPERCASE</strong></p>
                     <div class="check-cont">
-                        <input type="checkbox" name="" class="checkbtn" id="btncheck1">
+                        <input type="checkbox" name="" class="checkbtn" id="btncheck1" checked>
                         <label for="btncheck1" class="togglebtn"></label>
                     </div>
                 </div>
@@ -68,7 +58,7 @@
                 </div>
                 <hr>
             </div>
-            <button id="gen-btn" type="button" class="btn btn-lg btn-dark"><i class="fa-solid fa-bolt"></i>
+            <button id="gen-btn" type="button" class="btn btn-lg btn-light"><i class="fa-solid fa-bolt"></i>
                 Generate</button>
         </div>
     </div>

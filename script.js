@@ -10,9 +10,10 @@ let lowerBtn = document.querySelector("#btncheck2");
 let symbolBtn = document.querySelector("#btncheck3");
 let numberBtn = document.querySelector("#btncheck4");
 let display_field = document.getElementById("result-field");
-// let gen_length = document.getElementById("gen-length");
+let range_length = document.getElementById('range');
+let gen_length = document.getElementById("gen-length");
 let icon = document.getElementById('icon');
-// let lenth = 0;
+let lenth = range_length.value;
 
 let themeToggler = document.getElementById('themeToggle').addEventListener('click', () => {
     let boddy = document.body
@@ -39,22 +40,19 @@ let coppybtn = document.getElementById('copy-btn').addEventListener('click', () 
     }, 1500);
 })
 
-function plength(lenth = 0) {
-    if (pass_length[0].selected) return lenth = 4;
-    else if (pass_length[1].selected) return lenth = 6;
-    else if (pass_length[2].selected) return lenth = 8;
-    else if (pass_length[3].selected) return lenth = 10;
-    else if (pass_length[4].selected) return lenth = 12;
-    else if (pass_length[5].selected) return lenth = 16;
-}
+gen_length.innerHTML = range_length.value;
+range_length.addEventListener('input', () => {
+    gen_length.innerHTML = range_length.value;
+    lenth = range_length.value
+})
+
 generate_btn.addEventListener("click", () => {
-    pass_generator(plength());
+    pass_generator(lenth);
 });
 function getrandomdata(dataSet) {
     return dataSet[Math.floor(Math.random() * dataSet.length)];
 }
 function pass_generator(password = "") {
-    plength()
     if (upperBtn.checked) {
         password += getrandomdata(upperSet);
     }
@@ -67,11 +65,10 @@ function pass_generator(password = "") {
     if (symbolBtn.checked) {
         password += getrandomdata(spChars);
     }
-    if (password.length < plength()) {
+    if (password.length < lenth) {
         return pass_generator(password)
     }
-    // gen_length.innerText = password.length;
-    display_field.value = exactLength(password, plength());
+    display_field.value = exactLength(password, lenth);
 }
 
 function exactLength(str, num) {
